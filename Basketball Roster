@@ -1,0 +1,37 @@
+#create team
+team=[]
+pg=input('Who is your point guard:')
+sg=input('Who is your shooting guard:')
+sf=input('Who is your small forward:')
+pf=input('Who is your power forward:')
+c=input('Who is your center:')
+team.append(pg)
+team.append(sg)
+team.append(sf)
+team.append(pf)
+team.append(c)
+#show roster
+print('\n\tYour starting 5 for the upcoming basketball season')
+print('\t\tPoint Guard:\t\t'+(team[0].title()))
+print('\t\tShooting Guard:\t\t'+(team[1].title()))
+print('\t\tSmall Forward:\t\t'+(team[2].title()))
+print('\t\tPower Forward:\t\t'+(team[3].title()))
+print('\t\tCenter:\t\t\t'+(team[4].title()))
+#show injured player stats and add new player
+team.remove(sf)
+injuredPlayer=sf
+print('\nOh no, '+(injuredPlayer.title())+' is injured.')
+team_length=len(team)
+print('Your roster only has '+str(team_length)+' players.')
+addedPlayer=input("Who will take "+(injuredPlayer.title())+"'s spot:")
+team.insert(2, addedPlayer)
+#print new team
+print('\n\tYour starting 5 for the upcoming basketball season')
+print('\t\tPoint Guard:\t\t'+(team[0].title()))
+print('\t\tShooting Guard:\t\t'+(team[1].title()))
+print('\t\tSmall Forward:\t\t'+(team[2].title()))
+print('\t\tPower Forward:\t\t'+(team[3].title()))
+print('\t\tCenter:\t\t\t'+(team[4].title()))
+#print final message
+print('Good luck '+(team[2].title())+' you will do great!')
+print('Your roster now has '+str(team_length)+' players.')
