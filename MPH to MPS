@@ -1,0 +1,7 @@
+#naming speed and mps
+speed=input('What is your speed in miles per hour:')
+speed=float(speed)
+mps=speed*0.44704
+mps=float(mps)
+#print speed in mps
+print('Your speed in meters per second is ' +str(mps)+ '.')
