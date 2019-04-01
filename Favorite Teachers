@@ -1,0 +1,54 @@
+#create list for favoriteTeachers
+favoriteTeachers=[]
+favoriteTeachers.append('Eramo')
+print('Clearly '+favoriteTeachers[0]+' is your FAVORITE teacher.')
+#ask for other favorite teachers and add them to the list
+t=input('Who is your second favorite teacher:')
+tt=input('Who is your third favorite teacher:')
+f=input('Who is your fourth favorite teacher:')
+t=t.title()
+tt=tt.title()
+f=f.title()
+favoriteTeachers.append(t)
+favoriteTeachers.append(tt)
+favoriteTeachers.append(f)
+#print teachers in specific orders
+print('\nYour favorite teachers ranked are: '+str(favoriteTeachers))
+print('Your favorite teachers alphabetically are: '+str(sorted(favoriteTeachers)))
+print('Your favorite teachers in reverse alphabetical order are: '+str(sorted(favoriteTeachers,reverse=True)))
+#print teachers in order ranked
+print('\nYour top two favorite teachers are: '+str(favoriteTeachers[0])+ ' and '+str(favoriteTeachers[1])+'.')
+print('Your next two favorite teachers are: '+str(favoriteTeachers[2])+' and ' +str(favoriteTeachers[3])+'.')
+print('Your last favorite teacher is: '+str(favoriteTeachers[3])+'.')
+number=len(favoriteTeachers)
+print('You have a total of '+str(number)+' favorite teachers.')
+#no longer faorite teacher
+o=input('\nOops, '+str(favoriteTeachers[0]+' is no longer your first favorite teacher.  Who is your new FAVRITE teacher:'))
+o=o.title()
+favoriteTeachers.insert(0, o)
+#print statements again
+print('\nYour favorite teachers ranked are: '+str(favoriteTeachers))
+print('Your favorite teachers alphabetically are: '+str(sorted(favoriteTeachers)))
+
+print('Your favorite teachers in reverse alphabetical order are: '+str(sorted(favoriteTeachers,reverse=True)))
+#print teachers in order ranked
+print('\nYour top two favorite teachers are: '+str(favoriteTeachers[0])+ ' and '+str(favoriteTeachers[1])+'.')
+print('Your next two favorite teachers are: '+str(favoriteTeachers[2])+' and ' +str(favoriteTeachers[3])+'.')
+print('Your last favorite teacher is: '+str(favoriteTeachers[-1])+'.')
+number=len(favoriteTeachers)
+print('You have a total of '+str(number)+' favorite teachers.')
+#remove a teacher
+r=input("\nYou've decided you no longer like a teacher.  Which teacher would you like to remove from your list: ")
+r=r.title()
+favoriteTeachers.remove(r)
+#print statements
+print('\nYour favorite teachers ranked are: '+str(favoriteTeachers))
+print('Your favorite teachers alphabetically are: '+str(sorted(favoriteTeachers)))
+
+print('Your favorite teachers in reverse alphabetical order are: '+str(sorted(favoriteTeachers,reverse=True)))
+#print teachers in order ranked
+print('\nYour top two favorite teachers are: '+str(favoriteTeachers[0])+ ' and '+str(favoriteTeachers[1])+'.')
+print('Your next two favorite teachers are: '+str(favoriteTeachers[2])+' and ' +str(favoriteTeachers[3])+'.')
+print('Your last favorite teacher is: '+str(favoriteTeachers[3])+'.')
+number=len(favoriteTeachers)
+print('You have a total of '+str(number)+' favorite teachers.')
