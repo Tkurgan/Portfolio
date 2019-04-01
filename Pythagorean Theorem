@@ -1,0 +1,15 @@
+import math
+#Naming sides
+a=input('What is the first leg of the triangle:')
+b=input('What is the second leg of the triangle:')
+a=float(a)
+b=float(b)
+#Calculate Hypotenuse
+c=math.sqrt(a**2+b**2)
+c=float(c)
+#Calculate Area
+area=((a*b)/2)
+area=float(area)
+#Print Hypotenuse and area
+print('\nFor a triangle with legs of ' +str(a)+ ' and ' +str(b)+ ' the hypotenuse is ' +str(c)+ '.')
+print('For a triangle with legs of ' +str(a)+ ' and ' +str(b)+ ' the area is ' +str(area)+ '.')
