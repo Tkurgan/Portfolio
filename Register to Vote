@@ -1,0 +1,24 @@
+#get info
+votingParties=['Republican', 'Democratic', 'Independent', 'Libertarian', 'Green', 'Party Hardy']
+name=input('Please enter your name:')
+age=input('Please enter your age:')
+age=int(age)
+#print party info
+if age >17:
+  print('\nCongratulations ' +name.title().strip()+ '! You are old enough to register to vote.')
+  print('Here is a list of political perties to join.')
+  for i in votingParties:
+    print('\t- '+i)
+  party=input('What party would you like to join:')
+  party=party.title().strip()
+  #print specific party
+  if party in votingParties:
+    print('Congratulations ' +name.title().strip()+ '! You have joined the ' +party.title().strip()+ ' party!')
+    if party == 'Republican' or party == 'Democratic':
+      print('That is a major party!')
+    elif party == 'Independent' or party == 'Libertarian' or party == 'Green':
+      print('That is not a major party.')
+    elif party == 'Party Hardy':
+      print('You have a good sense of humor!')
+else:
+  print('You are not old enough to register to vote.')
