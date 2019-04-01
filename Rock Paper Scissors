@@ -1,0 +1,60 @@
+#list/score
+import random
+moves=['rock', 'paper', 'scissors']
+pscore=0
+cscore=0
+#welcome
+print('Welcome to a game of rock, paper, scissors!')
+rounds=input('How many rounds would you like to play:')
+rounds=int(rounds)
+#round and score
+for i in range(rounds):
+  print('\nRound ' +str(i+1))
+  print('Player: ' + str(pscore) + '\tComputer: ' + str(cscore))
+  computer=random.choice(moves)
+  choice=input('Time to pick...rock, paper, scissors:')
+  choice=choice.lower().strip()
+  print('Computer:' + computer)
+  print('Player:' + choice)
+#tie
+  if computer == choice:
+    print('It is a tie, how boring!')
+    print('This round is a tie.')
+#rock beats scissors
+  elif (choice == 'rock' or choice == 'scissors') and (computer == 'rock' or computer == 'scissors'):
+    print('Rock crushes scissors!')
+    if choice == 'rock':
+      print('You win round ' + str(i+1) +'.')
+      pscore+=1
+    else:
+      print('Computer gets a point!')
+      cscore+=1
+#paper beats rock
+  elif (choice == 'rock' or choice == 'paper') and (computer == 'rock' or computer == 'paper'):
+    print('Paper covers rock!')
+    if choice == 'paper':
+      print('You win round ' + str(i+1) +'.')
+      pscore+=1
+    else:
+      print('Computer gets a point!')
+      cscore+=1
+#scissors beats paper
+  elif (choice == 'paper' or choice == 'scissors') and (computer == 'paper' or computer == 'scissors'):
+    print('Scissors cuts paper!')
+    if choice == 'scissors':
+      print('You win round ' + str(i+1) +'.')
+      pscore+=1
+    else:
+      print('Computer gets a point!')
+      cscore+=1
+#final score
+print('\nFinal Game Results')
+print('\tRounds Played: ' +str(rounds))
+print('\tPlayer Score: ' +str(pscore))
+print('\tComputer Score: ' +str(cscore))
+if pscore < cscore:
+  print('Winner: Computer :-(')
+elif cscore < pscore:
+  print('Winner: PLAYER!!!')
+else:
+  print('This game was a tie.')
