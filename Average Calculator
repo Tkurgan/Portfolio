@@ -1,0 +1,26 @@
+name=input('What is your name:')
+ls=[]
+grades=input('How many grades would you like to enter:')
+for grade in range(1, int(grades)+1):
+  ls.append(int(input('Enter grade:')))
+ls.sort()
+
+print('\n'+name.title().strip()+"'s Grade Summary:")
+print('\tTotal Number of Grades: '+str(len(ls)))
+print('\tHighest Grade: '+str(max(ls)))
+print('\tLowest grade: '+str(min(ls)))
+avg=int(int(sum(ls)) / int(len(ls)))
+print('\tAverage: '+(str(avg)))
+print('\t\nGrades Highest to Lowest:')
+ls.sort(reverse=True)
+for lop in ls:
+  print('\t\t'+str(lop))
+
+davg=input('\nWhat is your desired average:')
+next_assignment=(int(davg)*(len(ls)+1)-sum(ls))
+print('\nYou will need to get a '+str(next_assignment)+' on your next assignment to earn a '+str(davg)+'.')
+print('Good luck ' +name.title().strip()+ '.')
+if next_assignment <101:
+  print('This is possible, keep working your hardest!')
+else:
+  print("This is not possible.  Don't bother trying!")
