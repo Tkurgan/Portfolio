@@ -1,0 +1,22 @@
+#Getting inputs
+print('I will flip a coin a ser number of times.')
+number=input('How many times would you like me to flip the coin:')
+print('Flipping!!!\n')
+#formula for flips
+from random import randint
+flips = [randint(0,1) for r in range(int(number))]
+heads=0
+tails=0
+for object in flips:
+  if object == 0:
+    heads= heads + 1
+  elif object == 1:
+    tails= tails +1
+#equal formula
+  if heads==tails:
+    print('At ' +str(heads+tails)+ ' flips, the number of heads and tails were equal at ' +str((heads+tails)/2)+ ' each.')
+#results
+print('\nResults Of Flipping A Coin '+number+' Times:\n')
+print('Side\tCount\tPercentage')
+print('Heads\t'+str(heads)+'/'+str(number)+'\t'+str(heads/(int(number))*100)+'%')
+print('Tails\t'+str(tails)+'/'+str(number)+'\t'+str(tails/(int(number))*100)+'%')
