@@ -1,0 +1,16 @@
+#print first statement and list
+steps=input('How many steps would you like in your number pyramid:')
+print('\nHere is our list of numbers 1 through '+steps+'.')
+for value in range(1, int(steps)+1):
+  print(value)
+#print number pyramid
+print('\nHere is our number pyramid up to '+str(steps)+'.')
+def num_pyramid(steps):
+  num=1
+  for i in range(0, int(steps)):
+    num=1
+    for j in range(0, i+1):
+      print(num, end="")
+      num=num+1
+    print("\r")
+num_pyramid(steps)
