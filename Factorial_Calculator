@@ -1,0 +1,6 @@
+import math
+factorial=input('What number would you like to take the factorial of?')
+print('The factorial of ' +str(factorial)+ ' is: ', end="")
+print(math.factorial(int(factorial)))
+print('That is '+str(factorial)+'! = ', end="")
+print(math.factorial(int(factorial)))
