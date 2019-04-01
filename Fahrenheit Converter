@@ -1,0 +1,9 @@
+#Naming types of temp
+F=input('What is the given Temperature in degrees Farenheit:')
+F=float(F)
+C=float((F-32)*5/9)
+K=float((F+459.67)*5/9)
+#Print types
+print('\nDegrees Fahrenheit: \t' +str(F))
+print('Degrees Celsius: \t' +str(C))
+print('Degrees Kelvin: \t' +str(K))
