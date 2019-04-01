@@ -1,0 +1,15 @@
+#Following orders
+num=int(input('What number would you like to work with: '))
+msg='Math is cool!'
+#Create a multiplication table & an exponent table
+print('\nMultiplication Table For ' +str(num)+ ' Returning Floats\n')
+for i in range (1,11):
+  print(float(i),'*',float(num),'=',float(num)*float(i))
+print('\nExponent  Table For ' +str(num)+ ' Returning Integers\n')
+for i in range(1,11):
+  print(int(i), '**', int(num), '=', int(num)**int(i))
+#Printing msg in standard, lower, upper, and title case
+print('\n'+msg)
+print('\t'+msg.lower())
+print('\t\t'+msg.title())
+print('\t\t\t'+msg.upper())
