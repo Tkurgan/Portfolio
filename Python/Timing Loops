@@ -1,0 +1,17 @@
+import time
+start = time.time()
+number = 0
+while number <1001:
+  print(number)
+  number+=1
+
+wloop = time.time()
+
+second = time.time()
+for i in range(0,1000):
+  print(i)
+
+floop = time.time()
+
+print('While loop time:\t ' + str(wloop - start) + ' seconds.')
+print('For loop time:\t\t ' +str(floop - second) + ' seconds.')
