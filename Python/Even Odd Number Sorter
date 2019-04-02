@@ -1,0 +1,30 @@
+flag = True
+while flag == True:
+  numbers = input('Enter in a string of numbers separated by a comma (,) : ').strip()
+  numbers = numbers.replace(' ', '')
+  numbers = numbers.split(',')
+  evens = []
+  odds = []
+  for i in numbers:
+    if int(i) %2:
+      odds.append(i)
+    else:
+      evens.append(i)
+  print('\n---- Result Summary ----')
+  for i in numbers:
+    if i in evens:
+      print(i + ' is even!')
+    else:
+      print(i + ' is odd!')
+  print('\nThe following ' + str(len(evens)) + ' numbers are even:')
+  for i in evens:
+    print(i)
+  print('\nThe following ' +str(len(odds)) + ' numbers are odd:')
+  for i in odds:
+    print(i)
+  i = input('Would you like to run the program again (y/n): ')
+  if i == 'y':
+    continue
+  else:
+    flag = False
+print('Thank you for using the program.  Goodbye.')
