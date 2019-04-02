@@ -1,0 +1,52 @@
+import random
+gameDict = {
+  'sports':['basketball', 'baseball', 'football', 'soccer', 'bowling', 'softball', 'hockey'],
+  'colors':['blue', 'pink', 'yellow', 'orange', 'purple', 'grey', 'black', 'white', 'silver', 'gold'],
+  'fruits':['apple', 'orange', 'banana', 'grapes', 'cranberry', 'strawberry', 'blackberry', 'blueberry'],
+  'classes':['gym', 'english', 'biology', 'algebra', 'trigonometry', 'chemistry']
+}
+gameKeys=[]
+for key in gameDict.keys():
+  gameKeys.append(key)
+flag = True
+while flag == True:
+  gameKey=random.choice(gameKeys)
+  value = random.choice(gameDict[gameKey])
+  word = list(value)
+  
+  number=0
+  numbers = [0]
+  for i in range(1,len(value)):
+    number+=1
+    numbers.append(number)
+  
+  blankWord = []
+  for i in range(1, len(value)+1):
+    blankWord.append('-')
+  print('Guess a ' + str(len(value)) + ' letter word from the folowing category: ' + gameKey)
+  
+  guess_counter = 1
+  grey = True
+  while grey == True:
+    print(''.join(blankWord))
+    guess = input('\nEnter your guess: ')
+    if guess == value:
+      print('\nCorrect! You guessed the word in ' +str(guess_counter)+ ' guesses.')
+      grey = False
+    else:
+      print('This is not correct.  Let us reveal a letter to help you!')
+      guess_counter+=1
+      
+      
+      randomint = random.choice(numbers)
+      blankWord[randomint]=word[randomint]
+      numbers.remove(randomint)
+      if not numbers:
+        print('You lost, the correct answer is ' + value + '.')
+        grey=False
+  we = input('Would you like to play again (y/n): ')
+  if we == 'y':
+    continue
+  else:
+    flag = False
+print('Thank you for playing our game.')
