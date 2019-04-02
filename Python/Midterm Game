@@ -1,0 +1,230 @@
+import random
+name='Tyler'
+bag=[]
+Health=100
+Body_Warmth=100
+Hydration=100
+place='island'
+#Island Biom Set
+#definitions
+def A():
+  answer=input('You fell in an old pirate bunker, there are many empty bottles and swords.  Would you like to put a bottle and a sword in you bag?').title().strip()
+  if answer == 'Yes' or 'Y':
+    bag.append('bottle')
+    bag.append('sword')
+  else:
+    print('Your choice, you must be more cautious now.')
+def B():
+  answer=input('You have walked through some leaves and stumbled upon a pig family, do you choose to create a temporary home close by? ').title().strip()
+  if answer == 'Yes' or answer == 'Y':
+    print('Good choice, now you have easy access to food.')
+  else:
+    print('It will now be difficult to find food.')
+def C(Health):
+  print('You fell in a cavern because your observation skills are weak.')
+  Health-=100
+  return Health
+def D(Body_Warmth):
+  hey=input('You need to build a temporary home, would you like to look for supplies').title().strip()
+  if hey == 'Y' or hey == 'Yes':
+    print('Good choice, wait until morning to do so. Right now you will sleep in a nearby cave. However it is very cold in there.')
+    Body_Warmth-=25
+    return Body_Warmth
+  else:
+    print('Okay, we can wait on it.')
+    return Body_Warmth
+def E(Health):
+  print("You're surrounded by chimps, and something terrible has happened so you blacked out.")
+  if 'sword' in bag:
+    Health-=30
+    return Health
+  else:
+    Health-=55
+    return Health
+  print('You awake and see lights that look like a fire, you are almost there. A villiage is very close.')
+def F():
+  print('You are continuing to explore! Keep moving to find new obstacles!')
+def G(Health):
+  g=input('You found some food, would you like to eat it?').title().strip()
+  if g == 'Yes' or g == 'Y':
+    print('Great idea, you have energy for later now.')
+    Health+=25
+    return Health
+  else:
+    print('Fine then, starve.')
+def H(Health):
+  h=input('You are getting closer to the ocean water, would you like to go to it?').title().strip()
+  if h == 'Yes' or h == 'Y':
+    print('Awesome, we will move there then.')
+    H=input('Would you like to go into the water?').title().strip()
+    if H == 'Yes' or H == 'Y':
+      print('There are sharks in the water, and someone does not have a chainmail suit. You have died for your forgetfulness.')
+      Health-=100
+    else:
+      print('Okay we will keep moving.')
+  else:
+    print('Okay we will keep moving.')
+  return Health
+def I():
+  print('You have found a land bridge to another island, you walk across it and find it has many more materials.')
+def J(Body_Warmth):
+  print('You find yourself lost in the night, so you decide to sleep where you are.')
+  Body_Warmth-=25
+  return Body_Warmth
+def K(Health):
+  print('You found a wizard who gives you more health.')
+  Health+=25
+  return Health
+def L(Hydration):
+  print('You are making great progress, but have failed to retrieve any water.')
+  Hydration-=75
+  return Hydration
+def M(Health):
+  print('You were walking and sprained your ankle walking down a hill.')
+  Health-=15
+  return Health
+def N(Hydration):
+  print('You found some water that was pure enough to drink!')
+  Hydration+=50
+  return Hydration
+def O(Hydration):
+  print('You have been walking forever and just noticed a stream of water coming off a rock, so you take some sips.')
+  Hydration+=15
+  return Hydration
+def P():
+  print('You are stumbling but you can do it. Just keep working! You can beat the island!')
+def Q(Health):
+  print('You fell in a pit of quick sand, enjoy the struggle.')
+  print('You did make it out, but you did lose some health along the way.')
+  Health -=25
+  return Health
+def R(Health):
+  print('You did a good job on the water!')
+  print('You found a fish and ate it, however it was raw.')
+  Health -=25
+  return Health
+def S(Body_Warmth):
+  print('You built a fire for the night.')
+  Body_Warmth+=25
+def T():
+  print('You have gotten to the end of the island, you need to turn around.')
+def U(Health):
+  print('You found some cocoanuts from the trees, you drink the milk from them.')
+  Health+=50
+  return Health
+def V(Body_Warmth):
+  print('You have made a fire for the night, you sleep cozy.')
+  Body_Warmth+=75
+  return Body_Warmth
+def W(Health):
+  print('Finding a bunch of bananas has helped you greatley, you doubled your health.')
+  Health*=2
+  return Health
+def X(Health):
+  print('The animals in the forest seem to be helping you toward your goal now. They are treating you like a king and giving you food.')
+  Health+=25
+  return Health
+def Y():
+  print('You notice the sun setting and take in all the beauty.')
+def Z():
+  print('The sand on your feet is relaxing and you are tired, so you take a break.')
+#Death Count
+if place == 'island':
+  print('\nThis island has many trees. The water that surrounds it is also infested with sharks.')
+  for i in range(10):
+    if Health < 1:
+      print('\nYour health has gone down to 0, you are dead and the game is over.')
+      break
+    elif Hydration < 1:
+      print('\nYou have become dehydrated and died, the game is over.')
+      break
+    elif Body_Warmth < 1:
+      print('\nYour body temperature has gone too low, you are dead and the game is over.')
+      break
+    elif Body_Warmth > 175:
+      print('\nYour body has overheated and you died, the game is over.')
+      break
+    move=input('\nWhat will your move be? ').title().strip()
+    print('You have moved ' +move+ '.')
+
+#if statements
+    ls=['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z']
+    letter=random.choice(ls)
+    if letter == 'A':
+      A()
+      ls.remove('A')
+    elif letter == 'B':
+      B()
+      ls.remove('B')
+    elif letter == 'C':
+      Health=C(Health)
+      ls.remove('C')
+    elif letter == 'D':
+      Body_Warmth=D(Body_Warmth)
+      ls.remove('D')
+    elif letter == 'E':
+      Health=E(Health)
+      ls.remove('E')
+    elif letter == 'F':
+      F()
+      ls.remove('F')
+    elif letter == 'G':
+      Health=G(Health)
+      ls.remove('G')
+    elif letter == 'H':
+      Health=H(Health)
+      ls.remove('H')
+    elif letter == 'I':
+      I()
+      ls.remove('I')
+    elif letter == 'J':
+      Body_Warmth=J(Body_Warmth)
+      ls.remove('J')
+    elif letter == 'K':
+      Health=K(Health)
+      ls.remove('K')
+    elif letter == 'L':
+      Hydration=K(Hydration)
+      ls.remove('L')
+    elif letter == 'M':
+      Health=M(Health)
+      ls.remove('M')
+    elif letter == 'N':
+      Hydration=N(Hydration)
+      ls.remove('N')
+    elif letter == 'O':
+      Hydration=O(Hydration)
+      ls.remove('O')
+    elif letter == 'P':
+      P()
+      ls.remove('P')
+    elif letter == 'Q':
+      Health=Q(Health)
+      ls.remove('Q')
+    elif letter == 'R':
+      Hydration=R(Hydration)
+      ls.remove('R')
+    elif letter == 'S':
+      Body_Warmth=S(Body_Warmth)
+      ls.remove('S')
+    elif letter == 'T':
+      T()
+      ls.remove('T')
+    elif letter == 'U':
+      Health=U(Health)
+      ls.remove('U')
+    elif letter == 'V':
+      Body_Warmth=V(Body_Warmth)
+      ls.remove('V')
+    elif letter == 'W':
+      Health=W(Health)
+      ls.remove('W')
+    elif letter == 'X':
+      Health=X(Health)
+      ls.remove('X')
+    elif letter == 'Y':
+      Y()
+      ls.remove('Y')
+    elif letter == 'Z':
+      Z()
+      ls.remove('Z')
