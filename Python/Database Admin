@@ -1,0 +1,29 @@
+log_on_information = {
+  'admin00':'Password1',
+  'tkurgan':'Password2',
+  'csimmons':'Password3',
+  'meramo':'Password3',
+  'tpapienuk':'Password4',
+}
+
+username = input('Enter your username: ').lower().strip()
+if username in log_on_information:
+  password = input('Enter your password: ').strip()
+  if password in log_on_information.values():
+    print('\nHello ' + username + '! You are logged in!')
+    if username == 'admin00':
+      print('\nHere is the current user database:')
+      for keys, values in log_on_information.items():
+        print('Username: ' + keys + '\t' + 'Password: ' + values)
+    answer = input('Would you like to change your password: ').lower().strip()
+    if answer == 'yes' or answer == 'y':
+      new = input('What would you like your new password to be: ')
+      if len(new) <8:
+        print(new + ' not the minium eight characters.')
+      else:
+        log_on_information[username] = new
+    print('\n' + username + ' your password is ' + log_on_information[username])
+  else:
+    print('That is an invalid password.')
+else:
+  print('Username not in database, goodbye.')
