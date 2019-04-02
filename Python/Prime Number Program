@@ -1,0 +1,45 @@
+flag = True
+while flag == True:
+  print('\nEnter 1 to determine if a specific number is prime.')
+  print('Enter 2 to determine all prime numbers within a set range.')
+  choice = input('Enter your choice 1 or 2: ')
+  if choice == '1':
+    number = int(input('\nEnter a number to determine if it is prime or not: '))
+    for i in range(2,number):
+      if (number%i) == 0:
+        print(number, 'is not prime!')
+        break
+      else:
+        if i == (number-1):
+          print(number, 'is prime!')
+    answer = input('Would you like to run the program again (y/n): ')
+    if answer == 'y':
+      continue
+    else:
+      flag = False
+  elif choice == '2':
+    lower = int(input('\nEnter the lower bound of your range: '))
+    upper = int(input('Enter the upper bound of your range: '))
+    print('The following numbers between ' + str(lower) + ' and ' + str(upper) + ' are prime: ')
+    if lower<3:
+      print('2')
+    for i in range(lower, upper):
+      for l in range(2,i):
+        if (i%l) == 0:
+          break
+        else:
+          if l == (i-1):
+            print(i)
+    answer = input('Would you like to run the program again (y/n): ')
+    if answer == 'y':
+      continue
+    else:
+      flag = False
+  else:
+    print('That is not a valid option.')
+    answer = input('Would you like to run the program again (y/n): ')
+    if answer == 'y':
+      continue
+    else:
+      flag = False
+print('Thank you for using the program.  Have a nice day.')
