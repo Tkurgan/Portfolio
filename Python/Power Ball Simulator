@@ -1,0 +1,62 @@
+import random
+
+#intro
+print('--------------------Power-Ball Simulator--------------------')
+White_balls = int(input('How many white-balls to draw from for the 5 winning numbers (Normally 69): '))
+if White_balls <5:
+  White_balls = 5
+Red_balls = int(input('How many red-balls to draw from for the Power-Ball (Normally 26): '))
+Ticket_interval = int(input('Purchase tickets in what interval: '))
+print('\n---------Welcome to the Power-Ball---------\n')
+
+#Winning numbers
+winning_numbers = []
+while (len(winning_numbers))<5:
+  winning_number = random.randint(1,White_balls)
+  if winning_number not in winning_numbers:
+    winning_numbers.append(winning_number)
+winning_numbers.sort()
+powerball = random.randint(1,Red_balls)
+winning_numbers.append(powerball)
+
+#more intro
+print("Tonight's winning numbers are: ",end='')
+for i in winning_numbers:
+  print(i, end=' ')
+input("\nPress 'Enter' to begin purchasing tickets!!!")
+
+#players tickets
+real_ticket_interval = Ticket_interval
+tickets_purchased = 0
+active = True
+ticket_numbers = []
+while active == True:
+  while len(ticket_numbers)<5:
+    ticket_number = random.randint(1,White_balls)
+    if ticket_number not in ticket_numbers:
+      ticket_numbers.append(ticket_number)
+  ticket_numbers.sort()
+  powerballl = random.randint(1,Red_balls)
+  ticket_numbers.append(powerballl)
+  print(ticket_numbers)
+  tickets_purchased+=1
+  if ticket_numbers == winning_numbers:
+    print('\nWinning ticket numbers: ',end='')
+    for i in winning_numbers:
+      print(i, end=' ')
+    print('\nPurchased a total of ' + str(tickets_purchased) + ' tickets.')
+    active = False
+  else:
+    ticket_numbers = []
+  if tickets_purchased == Ticket_interval:
+    print(real_ticket_interval, 'tickets purchased so far with no winners...')
+    answer = input('Keep purchasing tickets (y/n): ')
+    if answer == 'y':
+      tickets_purchased = 0
+      real_ticket_interval += Ticket_interval
+      continue
+    else:
+      active = False
+if winning_numbers != ticket_numbers:
+  print('You bought ' + str(real_ticket_interval) + ' tickets and still lost!')
+  print('Better luck next time!')
