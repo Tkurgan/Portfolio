@@ -1,0 +1,51 @@
+def add(num1, num2):
+  '''adds numbers'''
+  answer = float(num1) + float(num2)
+  print('\nThe sum of ' + str(num1) + ' and ' + str(num2) + ' is ' + str(answer) + '.')
+
+def subtract(num1, num2):
+  '''subtracts numbers'''
+  answer = float(num1) - float(num2)
+  print('\nThe difference of ' + str(num1) + ' and ' + str(num2) + ' is ' + str(answer) + '.')
+
+def multiply(num1, num2):
+  '''multiplies numbers'''
+  answer = float(num1) * float(num2)
+  print('\nThe product of ' + str(num1) + ' and ' + str(num2) + ' is ' + str(answer) + '.')
+
+def divide(num1, num2):
+  '''divides numbers with a zero check'''
+  if num2 == 0:
+    print('\nYou cannot divide by zero.')
+  else:
+    answer = float(num1) / float(num2)
+    print('\nThe quotient of ' + str(num1) + ' and ' + str(num2) + ' is ' + str(answer) + '.')
+
+def exponent(num1, num2):
+  '''multiplies a number based off an exponentation'''
+  answer = float(num1) ** float(num2)
+  print('\nThe result of ' + str(num1) + ' raised to the ' + str(num2) + ' power is ' + str(answer) + '.')
+
+print('Welcome to my calculator program.')
+print('Enter two numbers and a function and I will perform the desired function.')
+flag = True
+while flag == True:
+  num1 = input('\nEnter a number: ')
+  num2 = input('Enter a number: ')
+  function = input('Enter a function (add, subtract, multiply, divide, or exponent): ')
+  dict = {
+    'add': add,
+    'subtract': subtract,
+    'multiply': multiply,
+    'divide': divide,
+    'exponent': exponent
+  }
+  if function not in dict:
+    print('This is not a function.')
+  else:
+    func = dict[function]
+    func(num1, num2)
+  yn = input('Would you like to run the program again (y/n): ')
+  if yn != 'y':
+    flag = False
+print('Thank you for using the calculator program.  Goodbye.')
