@@ -1,0 +1,41 @@
+import random
+
+def dice_sides():
+  sides = input('How many sides would you like on your dice: ')
+  return sides
+
+def dice_number():
+  dice = input('How many dice would you like to roll: ')
+  return dice
+
+def roll_dice(sides, number):
+  ls = []
+  for i in range(1, int(number)+1):
+    num = random.randint(1, int(sides) + 1)
+    ls.append(num)
+  return ls
+
+def sum_dice(dice_values):
+  total = 0
+  for num in dice_values:
+    total = total + num
+  print('The total value of your roll is ' + str(total) + '.')
+
+def roll_again():
+  response = input('Would you like to roll again (y/n): ')
+  return response
+
+flag = True
+while flag:
+  sides = dice_sides()
+  dice = dice_number()
+  print('\nYou rolled ' + str(dice), str(sides) + ' sided dice.\n')
+  ls = []
+  ls = roll_dice(sides, dice)
+  print('-----Results are as followed-----')
+  for i in ls:
+    print('\t' + str(i))
+  sum_dice(ls)
+  response = roll_again()
+  if response != 'y':
+    flag = False
