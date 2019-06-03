@@ -1,0 +1,60 @@
+def get_loan_info():
+  '''gets information about the loan'''
+  loan = {}
+  loan_amount = float(input('Enter the loan amount: '))
+  loan['Principal'] = loan_amount
+  interest_rate = float(input('Enter the interest rate: '))
+  loan['Rate'] = interest_rate
+  loan['Rate'] /= 100
+  monthly_payment = float(input('Enter the desired monthly payment amount: '))
+  loan['Monthly payment'] = monthly_payment
+  loan['Money paid'] = 0
+  return loan
+
+def show_loan_info(month_number, loan_dictionary):
+  '''shows the information in the loan dictionary'''
+  print('\n----Loan information after ' + str(month_number) + ' months----')
+  for key, value in loan_dictionary:
+    print(str(key) + ': ' + str(value))
+
+def collect_interest(loan_dictionary):
+  '''takes interest from variable'''
+  loan_dictionary['Principal'] += loan_dictionary['Principal']*(loan_dictionary['Rate']/12)
+  return loan_dictionary
+
+def make_monthly_payment(loan_dictionary):
+  '''"pays" the monthly payment'''
+  loan_dictionary['Principal'] -= loan_dictionary['Monthly payment']
+  if loan_dictionary['Principal'] >0:
+    loan_dictionary['Money paid'] += loan_dictionary['Monthly payment']
+  if loan_dictionary['Principal'] <0:
+    loan_dictionary['Money paid'] += loan_dictionary['Principal'] + loan_dictionary['Monthly payment']
+  return loan_dictionary
+
+def summarize_loan(loan_dictionary, month_number, initial_principal):
+  '''prints a result summary'''
+  print('\nCongratulations!  You paid off your loan in ' + str(month_number) + ' months!')
+  print('Your initial loan was $' + str(initial_principal) + ' at a rate of ' + str(loan_dictionary['Rate']*100) + '%.')
+  print('Your monthly payment was $' + str(loan_dictionary['Monthly payment']))
+  print('You spent $' + str(round(loan_dictionary['Money paid'], 2)) + ' total.')
+  print('You spent $' + str(round(loan_dictionary['Money paid'] - initial_principal, 2)) + ' on interest!')
+
+#actual code
+month_number = 0
+loan = get_loan_info()
+initial_principal = loan['Principal']
+show_loan_info(month_number, loan.items())
+
+input("Press 'enter' to begin paying off your loan.")
+while loan['Principal'] >0:
+  collect_interest(loan)
+  if loan['Monthly payment'] < (loan['Principal'] - initial_principal):
+    show_loan_info(month_number, loan.items())
+    print('\nYou will never pay off your loan!!!')
+    print('You cannot get ahead of the interest!  :-(')
+    break
+  show_loan_info(month_number, loan.items())
+  make_monthly_payment(loan)
+  month_number += 1
+  
+summarize_loan(loan, month_number, initial_principal)
