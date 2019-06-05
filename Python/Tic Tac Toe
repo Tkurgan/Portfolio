@@ -1,0 +1,73 @@
+def player(turn, player1, player2):
+  '''decides what player is playing'''
+  if turn%2 == 0:
+    player = player2
+  else:
+    player = player1
+  return player
+
+def player_move(player, charList, numList):
+  '''takes in the players move and decides if it is a spot on the board or already taken'''
+  move = int(input(player + ': Where would you like to place your piece (1 - 9): '))
+  if str(move) not in numList:
+    print('That is not a spot on the board.  Try again.')
+    return player_move(player, charList, numList)
+  elif charList[move - 1] != '-':
+    print('That spot has already been chosen.  Try again.')
+    return player_move(player, charList, numList)
+  else:
+    return move
+
+def place_move(player, move, charList):
+  '''places the players move on the board'''
+  charList[move-1] = player
+
+def board(ls):
+  '''displays the board'''
+  print('\t\t   Tic-Tac-Toe')
+  print('\t\t' +'~'*17)
+  print('\t\t|| ' + ls[0] + ' || ' + ls[1] + ' || ' + ls[2] + ' ||')
+  print('\t\t' +'~'*17)
+  print('\t\t|| ' + ls[3] + ' || ' + ls[4] + ' || ' + ls[5] + ' ||')
+  print('\t\t' +'~'*17)
+  print('\t\t|| ' + ls[6] + ' || ' + ls[7] + ' || ' + ls[8] + ' ||')
+  print('\t\t' +'~'*17)
+  
+def winner(player, charList):
+  '''checks every possibility for a winner'''
+  return (charList[0] == player and charList[1] == player and charList[2] == player or
+  charList[3] == player and charList[4] == player and charList[5] == player or
+  charList[6] == player and charList[7] == player and charList[8] == player or
+  charList[0] == player and charList[3] == player and charList[6] == player or
+  charList[1] == player and charList[4] == player and charList[7] == player or
+  charList[2] == player and charList[5] == player and charList[8] == player or
+  charList[0] == player and charList[4] == player and charList[8] == player or
+  charList[2] == player and charList[4] == player and charList[6] == player)
+
+#actual code
+player1 = 'X'
+player2 = 'O'
+charList = ['-']*9
+numList = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+turn = 0
+
+flag = True
+while flag:
+  turn += 1
+  players = player(turn, player1, player2)
+  board(numList)
+  board(charList)
+  move = player_move(players, charList, numList)
+  place_move(players, move, charList)
+  win = winner(players, charList)
+  if win == True:
+    board(charList)
+    if players == player1:
+      print('Player 1 wins!')
+    else:
+      print('Player 2 wins!')
+    flag = False
+  if '-' not in charList:
+    board(charList)
+    print('The game is a draw.')
+    flag = False
