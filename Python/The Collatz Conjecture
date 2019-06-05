@@ -1,0 +1,24 @@
+def get_input(string):
+  '''gets input from user and returns it'''
+  answer = string
+  return answer
+
+def collatz(number):
+  '''if number is even divides it by 2 if odd multiplies by 3 adds 1'''
+  if number%2 == 0:
+    number = number//2
+  else:
+    number = number*3 + 1
+  return number
+
+def show_results(collatz_number, number2):
+  '''displays results'''
+  number2 += 1
+  print('After', number2, 'iterations:', collatz_number)
+
+#actual code
+collatz_num = get_input(int(input('Enter a number and I will show you the Collatz Sequence: ')))
+iterations = 0
+while collatz_num != 1:
+  collatz_num = collatz(collatz_num)
+  show_results(collatz_num, iterations)
